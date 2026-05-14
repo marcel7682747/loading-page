@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+  color: #d4af37;
+}
+
+/* camada base de luz */
+.luxury-light {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212,175,55,0.12), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+}
+
+/* 🔥 PRODUTO COMO FUNDO (NÃO IMAGEM COMUM) */
+.product-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.06;
+  filter: grayscale(100%) contrast(120%) blur(1.5px);
+
+  transform: scale(1.08);
+}
+
+/* camada de profundidade dourada */
+.product-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(212,175,55,0.08),
+    transparent 60%
+  );
+}
+
+/* conteúdo */
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* marca */
+.brand {
+  font-size: 30px;
+  letter-spacing: 8px;
+  font-weight: 300;
+  color: #c9a24e;
+  opacity: 0.9;
+}
+
+/* loader premium */
+.loader {
+  margin-top: 35px;
+  width: 180px;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
+/* status */
+.status {
+  margin-top: 18px;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: rgba(255,255,255,0.55);
+}
+
+/* responsivo */
+@media (max-width: 768px) {
+  .brand {
+    font-size: 22px;
+    letter-spacing: 5px;
+  }
+}
